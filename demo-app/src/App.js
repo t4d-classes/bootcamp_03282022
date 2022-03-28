@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { Layout } from './components/Layout';
-import { HelloWorld } from './components/HelloWorld';
+import { Home } from './components/Home';
+import { ColorTool } from './components/ColorTool';
 
 
 export function App() {
