@@ -15,6 +15,7 @@ export function Layout() {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/color-tool">Color Tool</Link></li>
+                    <li><Link to="/car-tool">Car Tool</Link></li>
                 </ul>
             </nav>
 
