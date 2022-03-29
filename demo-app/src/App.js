@@ -18,12 +18,12 @@ export function App() {
             <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
                 <Route path="color-tool" element={<ColorTool />} />
-                <Route path="car-tool" element={<>
-                    <CarTool cars={carList} headerText="Car Tool" />
-                    <CarTool cars={carList} headerText="Car Tool" />
-                </>} />
+                <Route path="car-tool" element={<CarTool cars={carList} />} />
             </Route>
         </Routes>
     );
 
 }
+
+// <CarTool cars={carList} headerText="Car Tool" />
+// React.createElement(CarTool, { cars: carList, headerText: "Car Tool "})
