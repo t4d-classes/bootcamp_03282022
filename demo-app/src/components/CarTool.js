@@ -1,10 +1,14 @@
 import React from "react"
 
-export function CarTool() {
+export function CarTool(props) {
+
+    props.cars.push({ id: 3, make: 'Chevrolet', model: 'Fusion Hybrid', year: 2020, color: 'red', price: 45000 });    
 
     return (
         <>
-            <h3>Car Tool</h3>
+            <header>
+                <h3>Car Tool</h3>
+            </header>
             <table>
                 <thead>
                     <tr>
@@ -17,35 +21,17 @@ export function CarTool() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Bugatti</td>
-                        <td>Chiron Supersport</td>
-                        <td>2022</td>
-                        <td>blue</td>
-                        <td>3825000</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Ford</td>
-                        <td>Fusion Hybrid</td>
-                        <td>2021</td>
-                        <td>red</td>
-                        <td>45000</td>
-                    </tr>
+                    {props.cars.map(car => <tr key={car.id}>
+                        <td>{car.id}</td>
+                        <td>{car.make}</td>
+                        <td>{car.model}</td>
+                        <td>{car.year}</td>
+                        <td>{car.color}</td>
+                        <td>{car.price}</td>
+                    </tr>)}
                 </tbody>
             </table>
         </>
     );
-
-    // return (
-    //     <h3></h3>
-    //     <table></table>
-    // )
-    
-    // return (
-    //    React.createElement('h3', { children: 'Car Tool' })
-    //    React.createElement('table'))
-    // );    
 
 }
