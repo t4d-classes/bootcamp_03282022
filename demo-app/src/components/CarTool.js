@@ -25,16 +25,27 @@ export function CarTool() {
                         <td>blue</td>
                         <td>3825000</td>
                     </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ford</td>
+                        <td>Fusion Hybrid</td>
+                        <td>2021</td>
+                        <td>red</td>
+                        <td>45000</td>
+                    </tr>
                 </tbody>
             </table>
         </>
     );
 
     // return (
-    //     React.createElement(React.Fragment, null,
-    //       React.createElement('h3', { children: 'Car Tool' }),
-    //       React.createElement('table'))
-    // );
-
+    //     <h3></h3>
+    //     <table></table>
+    // )
+    
+    // return (
+    //    React.createElement('h3', { children: 'Car Tool' })
+    //    React.createElement('table'))
+    // );    
 
 }
