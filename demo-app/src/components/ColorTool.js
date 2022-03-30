@@ -1,5 +1,6 @@
 import { ToolHeader } from './ToolHeader';
 import { ColorList } from './ColorList';
+import { ColorForm } from './ColorForm';
 
 export function ColorTool(props) {
 
@@ -7,6 +8,7 @@ export function ColorTool(props) {
         <>
             <ToolHeader headerText='Color Tool' />
             <ColorList colors={props.colors} />
+            <ColorForm />
         </>
     );
 
