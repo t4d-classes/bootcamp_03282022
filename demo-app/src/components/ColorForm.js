@@ -17,7 +17,15 @@ export const ColorForm = (props) => {
         });
     };
 
-    console.log(colorForm);
+    const submitColor = () => {
+        props.onSubmitColor({
+            ...colorForm
+        });
+
+        setColorForm({
+            name: '', hexcode: '',
+        });
+    };
 
     return (
         <form>
@@ -31,7 +39,9 @@ export const ColorForm = (props) => {
                 <input type="text" name="hexcode"
                     value={colorForm.hexcode} onChange={change} />
             </label>
-            <button type="button"></button>
+            <button type="button" onClick={submitColor}>
+                {props.buttonText}
+            </button>
         </form>
     );
 
