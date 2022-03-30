@@ -1,5 +1,6 @@
 import { ToolHeader } from "./ToolHeader";
 import { CarTable } from "./CarTable";
+import { CarForm } from "./CarForm";
 
 export function CarTool(props) {
 
@@ -7,6 +8,7 @@ export function CarTool(props) {
         <>
             <ToolHeader headerText="Car Tool" />
             <CarTable cars={props.cars} />
+            <CarForm />
         </>
     );
 
