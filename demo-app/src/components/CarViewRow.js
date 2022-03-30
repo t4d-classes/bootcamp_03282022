@@ -1,5 +1,5 @@
 
-
+import { carPropType } from '../propTypes/cars';
 export const CarViewRow = (props) => {
 
     return (
@@ -11,7 +11,9 @@ export const CarViewRow = (props) => {
             <td>{props.car.color}</td>
             <td>{props.car.price}</td>
         </tr>        
-    )
+    );
+};
 
-
+CarViewRow.propTypes = {
+    car: carPropType.isRequired,
 };

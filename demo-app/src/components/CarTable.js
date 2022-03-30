@@ -1,3 +1,4 @@
+import { carsPropType } from '../propTypes/cars';
 import { CarViewRow } from './CarViewRow';
 
 export const CarTable = (props) => {
@@ -21,3 +22,12 @@ export const CarTable = (props) => {
     );
 
 };
+
+CarTable.defaultProps = {
+    cars: [],
+};
+
+CarTable.propTypes = {
+    cars: carsPropType,
+};
+
