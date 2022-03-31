@@ -2,6 +2,7 @@ import { carPropType } from '../propTypes/cars';
 
 export const CarViewRow = (props) => {
 
+    const editCar = () => props.onEditCar(props.car.id);
     const deleteCar = () => props.onDeleteCar(props.car.id);
 
     return (
@@ -13,6 +14,8 @@ export const CarViewRow = (props) => {
             <td>{props.car.color}</td>
             <td>{props.car.price}</td>
             <td>
+                <button type="button"
+                    onClick={editCar}>Edit</button>
                 <button type="button"
                     onClick={deleteCar}>Delete</button>
             </td>
