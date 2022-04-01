@@ -1,21 +1,16 @@
-import { useColorToolStore } from '../hooks/useColorToolStore';
+import { useColorToolStoreContext } from '../contexts/colorToolStoreContext';
 import { ToolHeader } from './ToolHeader';
 import { ColorList } from './ColorList';
 import { ColorForm } from './ColorForm';
 
 
-;
 
-export function ColorTool(props) {
-
-    // ... is the array spread operator used to copy items from
-    // props.colors into a new array that the component owns
-    // const store = useColorToolStore([...props.colors]);
+export function ColorTool() {
 
     const { 
         colors, showHexcode, sortColorsAsc,
         sortColorsDesc, toggleHexcode, appendColor,
-    } = useColorToolStore([...props.colors]);
+    } = useColorToolStoreContext();
 
 
     return (

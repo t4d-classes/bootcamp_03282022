@@ -1,12 +1,10 @@
 import { useState } from "react";
 
-
 export const useList = (initialItems) => {
 
     const [ items, setItems ] = useState(initialItems);
 
     const addItem = item => {
-
         setItems([
             ...items,
             {
@@ -14,7 +12,6 @@ export const useList = (initialItems) => {
                 id: Math.max(...items.map(c => c.id), 0) + 1,
             }
         ]);
-
     };
 
     const saveItem = item => {
@@ -29,7 +26,4 @@ export const useList = (initialItems) => {
     };
 
     return [ items, addItem, saveItem, deleteItem ];
-
-
-
 };
