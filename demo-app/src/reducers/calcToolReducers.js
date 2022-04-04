@@ -1,6 +1,10 @@
 import { combineReducers } from "redux";
 
-import { ADD_ACTION, SUBTRACT_ACTION, MULTIPLY_ACTION, DIVIDE_ACTION } from "../actions/calcToolActions";
+import {
+    ADD_ACTION, SUBTRACT_ACTION,
+    MULTIPLY_ACTION, DIVIDE_ACTION,
+    CLEAR_ACTION,
+} from "../actions/calcToolActions";
 
 
 const resultReducer = (result = 0, action) => {
@@ -14,12 +18,18 @@ const resultReducer = (result = 0, action) => {
             return result * action.value;
         case DIVIDE_ACTION:
             return result / action.value;
+        case CLEAR_ACTION:
+            return 0;
         default:
             return result;
     }
 };
 
 const historyReducer = (history = [], action) => {
+
+    if (action.type === CLEAR_ACTION) {
+        return [];
+    }
 
     if ([
         ADD_ACTION, SUBTRACT_ACTION,
