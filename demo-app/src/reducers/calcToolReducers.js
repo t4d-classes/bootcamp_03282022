@@ -11,9 +11,9 @@ const resultReducer = (result = 0, action) => {
         case SUBTRACT_ACTION:
             return result - action.value;
         case MULTIPLY_ACTION:
-            return result - action.value;
+            return result * action.value;
         case DIVIDE_ACTION:
-            return result - action.value;
+            return result / action.value;
         default:
             return result;
     }
