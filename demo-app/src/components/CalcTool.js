@@ -8,7 +8,7 @@ export const CalcTool = () => {
         result, history,
         add, subtract,
         multiply, divide,
-        clear,
+        clear, deleteHistoryEntry
     } = useCalcToolReduxStore();
 
     const [ numInput, setNumInput ] = useState(0);
@@ -38,6 +38,7 @@ export const CalcTool = () => {
             <ul>
                 {history.map(entry => <li key={entry.id}>
                     {entry.opName} {entry.opValue}
+                    <button type="button" onClick={() => deleteHistoryEntry(entry.id)}>X</button>
                 </li>)}
             </ul>
         </>

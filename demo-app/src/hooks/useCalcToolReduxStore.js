@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     createAddAction, createSubtractAction,
     createMultiplyAction, createDivideAction,
-    createClearAction,
+    createClearAction, createDeleteHistoryEntryAction
 } from "../actions/calcToolActions";
 
 export const useCalcToolReduxStore = () => {
@@ -29,6 +29,7 @@ export const useCalcToolReduxStore = () => {
         multiply: createMultiplyAction,
         divide: createDivideAction,
         clear: createClearAction,
+        deleteHistoryEntry: createDeleteHistoryEntryAction,
     }, dispatch);
 
 
