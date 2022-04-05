@@ -7,24 +7,6 @@ import {
 } from "../actions/calcToolActions";
 
 
-const resultReducer = (result = 0, action) => {
-
-    switch(action.type) {
-        case ADD_ACTION:
-            return result + action.value;
-        case SUBTRACT_ACTION:
-            return result - action.value;
-        case MULTIPLY_ACTION:
-            return result * action.value;
-        case DIVIDE_ACTION:
-            return result / action.value;
-        case CLEAR_ACTION:
-            return 0;
-        default:
-            return result;
-    }
-};
-
 const historyReducer = (history = [], action) => {
 
     if (action.type === CLEAR_ACTION) {
@@ -63,6 +45,5 @@ const historyReducer = (history = [], action) => {
 // };
 
 export const calcToolReducer = combineReducers({
-    result: resultReducer,
     history: historyReducer,
 });
