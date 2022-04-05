@@ -1,44 +1,19 @@
-import { useState } from "react";
-
-import { useList } from "../hooks/useList";
+import { useCarToolReduxStore } from '../hooks/useCarToolReduxStore';
 import { ToolHeader } from "./ToolHeader";
 import { CarTable } from "./CarTable";
 import { CarForm } from "./CarForm";
 
-export function CarTool(props) {
+export function CarTool() {
 
-    const [
-        cars, appendCar,
-        replaceCar, removeCar,
-    ] = useList([...props.cars]);
-
-    const [ editCarId, setEditCarId ] = useState(-1);
-
-    const addCar = car => {
-
-        appendCar(car);
-        setEditCarId(-1);
-
-    };
-
-    const saveCar = car => {
-        replaceCar(car);
-        setEditCarId(-1);
-    }
-
-    const deleteCar = carId => {
-        removeCar(carId);
-        setEditCarId(-1);
-    };
-
-    const cancelCar = () => setEditCarId(-1);
-
+    const {
+        cars, editCarId, addCar, saveCar,
+        deleteCar, editCar, cancelCar } = useCarToolReduxStore();
 
     return (
         <>
             <ToolHeader headerText="Car Tool" />
             <CarTable cars={cars} editCarId={editCarId}
-                onEditCar={setEditCarId} onDeleteCar={deleteCar}
+                onEditCar={editCar} onDeleteCar={deleteCar}
                 onSaveCar={saveCar} onCancelCar={cancelCar} />
             <CarForm buttonText="Add Car" onSubmitCar={addCar} />
         </>
