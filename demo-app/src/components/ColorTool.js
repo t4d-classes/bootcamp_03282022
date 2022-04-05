@@ -8,19 +8,14 @@ import { ColorForm } from './ColorForm';
 export function ColorTool() {
 
     const { 
-        colors, showHexcode, sortColorsAsc,
-        sortColorsDesc, toggleHexcode, appendColor,
+        colors, appendColor,
     } = useColorToolStoreContext();
 
 
     return (
         <>
             <ToolHeader headerText='Color Tool' />
-            <ColorList colors={colors}
-                showHexcode={showHexcode}
-                onSortAsc={sortColorsAsc}
-                onSortDesc={sortColorsDesc}
-                onToggleHexcode={toggleHexcode} />
+            <ColorList colors={colors} />
             <ColorForm buttonText="Add Color"
                 onSubmitColor={appendColor} />
         </>
