@@ -55,6 +55,7 @@ export const useCalcToolReduxStore = () => {
 
 
     const history = useSelector(state => state.history);
+    const errorMessage = useSelector(state => state.errorMessage);
 
     const dispatch = useDispatch();
 
@@ -81,6 +82,7 @@ export const useCalcToolReduxStore = () => {
         ...boundActions,
         result,
         history,
+        errorMessage,
     };
 
 };
