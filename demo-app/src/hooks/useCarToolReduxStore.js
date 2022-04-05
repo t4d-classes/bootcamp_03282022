@@ -8,7 +8,14 @@ import {
 
 export const useCarToolReduxStore = () => {
 
-    const cars = useSelector(state => state.cars);
+    const cars = useSelector(state => {
+        return state.cars.map(car => {
+
+            const carCopy = { ...car };
+            carCopy.formattedPrice = '$' + car.price;
+            return carCopy;
+        });
+    });
     const editCarId = useSelector(state => state.editCarId);
 
     const dispatch = useDispatch();

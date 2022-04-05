@@ -12,7 +12,7 @@ export const CarViewRow = (props) => {
             <td>{props.car.model}</td>
             <td>{props.car.year}</td>
             <td>{props.car.color}</td>
-            <td>{props.car.price}</td>
+            <td>{props.car.formattedPrice}</td>
             <td>
                 <button type="button"
                     onClick={editCar}>Edit</button>
