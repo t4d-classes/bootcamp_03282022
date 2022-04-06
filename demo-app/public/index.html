@@ -91,14 +91,33 @@
             console.log('all done!');
         };
 
+        let counter = 0;
+
+        counter++;
         setTimeout(() => {
             console.log('a');
+            counter--;
+            if (counter === 0) {
+                allDone();
+            }
         }, delay());
+
+        counter++;
         setTimeout(() => {
             console.log('b');
+            counter--;
+            if (counter === 0) {
+                allDone();
+            }
         }, delay());
+
+        counter++;
         setTimeout(() => {
             console.log('c');
+            counter--;
+            if (counter === 0) {
+                allDone();
+            }
         }, delay());
 
         // Lab Exercise:
