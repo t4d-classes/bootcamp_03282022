@@ -194,7 +194,7 @@
 
 
     </script> -->
-    <script>
+    <!-- <script>
 
 
         // const xhr = new XMLHttpRequest();
@@ -291,6 +291,52 @@
         // const colors = await allColors2();
         // console.log(colors);
 
+
+    </script> -->
+    <script>
+
+        const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+        const taskA = () => new Promise(resolve => setTimeout(() => resolve('a'), delay()));
+        const taskB = () => new Promise(resolve => setTimeout(() => resolve('b'), delay()));
+        const taskC = () => new Promise(resolve => setTimeout(() => resolve('c'), delay()));
+
+        const doSequence1 = () =>
+            taskA()
+                .then(result => {
+                    console.log(result);
+                    return taskB();
+                })
+                .then(result => {
+                    console.log(result);
+                    return taskC();
+                })
+                .then(result => {
+                    console.log(result);
+                });
+
+        const doSequence2 = async () => {
+            console.log(await taskA());
+            console.log(await taskB());
+            console.log(await taskC());
+        };
+
+        const doGroup1 = () => 
+            Promise.all([ taskA(), taskB(), taskC() ])
+                .then(results => {
+                    console.log(results);
+                    console.log("all done");
+                });
+
+        const doGroup2 = async () => {
+            console.log(await Promise.all([ taskA(), taskB(), taskC() ]));
+            console.log("all done");
+        };
+
+        doSequence1();
+        doSequence2();
+        doGroup1();
+        doGroup2();
 
     </script>
   </body>
