@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 
 import { calcToolStore  } from './stores/calcToolStore';
 import { carToolStore  } from './stores/carToolStore';
+import { colorToolStore  } from './stores/colorToolStore';
+
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 import { ColorTool } from './components/ColorTool';
@@ -16,7 +18,9 @@ export function App() {
         <Routes>
             <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
-                <Route path="color-tool" element={<ColorTool />} />
+                <Route path="color-tool" element={<Provider store={colorToolStore}>
+                    <ColorTool />
+                </Provider>} />
                 <Route path="car-tool" element={<Provider store={carToolStore}>
                     <CarTool />
                 </Provider>} />
