@@ -197,25 +197,99 @@
     <script>
 
 
-        const xhr = new XMLHttpRequest();
+        // const xhr = new XMLHttpRequest();
 
-        xhr.addEventListener('readystatechange', () => {
+        // xhr.addEventListener('readystatechange', () => {
 
-            if (xhr.status === 200 && xhr.readyState === 4) {
-                console.log(JSON.parse(xhr.responseText));
-            }
+        //     if (xhr.status === 200 && xhr.readyState === 4) {
+        //         console.log(JSON.parse(xhr.responseText));
+        //     }
 
-        });
+        // });
 
-        xhr.open('GET', 'http://localhost:3060/colors');
-        xhr.send();
+        // xhr.open('GET', 'http://localhost:3060/colors');
+        // xhr.send();
 
         // Lab Exercise
 
         // Implement the following myFetch function using the call below as function
         // signature, use the XHR code above as the mechanism by which you call the REST API
 
-        myFetch('http://localhost:3060/colors').then(colors => console.log(colors));
+        // myFetch('http://localhost:3060/colors').then(colors => console.log(colors));
+
+        // 100% valid JavaScript, promise chain
+        // const allColors = () => {
+        //     return fetch('http://localhost:3060/colors')
+        //         .then(res => res.json())
+        //         .catch(err => {
+        //             // handle the error
+        //         });
+        // };
+
+        // 100% valid JavaScript, promises + generators to do async/await
+        const allColors = async () => {
+            try {
+                const res = await fetch('http://localhost:3060/colors'); // GET
+                const colors = await res.json();
+                return colors;
+            } catch(err) {
+                // handle the error
+            }
+        };
+
+        const oneColor = async (colorId) => {
+            try {
+                const res = await fetch(`http://localhost:3060/colors/${encodeURIComponent(colorId)}`); // GET
+                const color = await res.json();
+                return color;
+            } catch(err) {
+                // handle the error
+            }
+        };        
+
+        const appendColor = async (color) => {
+            try {
+                const res = await fetch(`http://localhost:3060/colors`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(color),
+                });
+                const color = await res.json();
+                return color;
+            } catch(err) {
+                // handle the error
+            }
+        }; 
+
+        const replaceColor = async (color) => {
+            try {
+                await fetch(`http://localhost:3060/colors/${encodeURIComponent(color.id)}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(color),
+                });
+            } catch(err) {
+                // handle the error
+            }
+        }; 
+        
+        const removeColor = async (colorId) => {
+            try {
+                await fetch(`http://localhost:3060/colors/${encodeURIComponent(colorId)}`, {
+                    method: 'DELETE',
+                });
+            } catch(err) {
+                // handle the error
+            }
+        }; 
+
+        
+
+        // allColors().then(colors => console.log(colors));
+        // allColors2().then(colors => console.log(colors));
+
+        // const colors = await allColors2();
+        // console.log(colors);
 
 
     </script>
