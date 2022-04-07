@@ -14,8 +14,8 @@ export const resolvers = {
     graphqlIsCool() {
         return true;
     },
-    author() {
-        return fetch('http://localhost:5050/authors/1')
+    author(_, args) {
+        return fetch('http://localhost:5050/authors/' + args.authorId)
             .then(res => res.json());
     }
   },

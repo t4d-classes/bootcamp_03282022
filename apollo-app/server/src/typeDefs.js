@@ -6,7 +6,7 @@ export const typeDefs = gql`
     luckyNum: Int
     pi: Float
     graphqlIsCool: Boolean
-    author: Author
+    author(authorId: ID): Author
   }
 
 
