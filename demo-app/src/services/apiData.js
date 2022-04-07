@@ -10,6 +10,11 @@ export const createApi = (resourceName) => {
     return res.json();
   };
 
+  const one = async (resourceId) => {
+    const res = await fetch(elementUrl(resourceName, resourceId));
+    return res.json();
+  };
+
   const append = async resourceData => {
     const res = await fetch(
       collectionUrl(resourceName),
@@ -32,7 +37,7 @@ export const createApi = (resourceName) => {
   };
 
   return {
-    all, append, replace, remove,
+    all, one, append, replace, remove,
   };
 
 };
