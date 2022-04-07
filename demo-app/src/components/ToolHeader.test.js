@@ -12,7 +12,7 @@ test("snapshot ToolHeader component", () => {
 });
 
 describe("ToolHeader component", () => {
-  test("renders ToolHeader component", () => {
+  test("should render ToolHeader component", () => {
     render(
       <ToolHeader headerText="The Tool" />
     );
