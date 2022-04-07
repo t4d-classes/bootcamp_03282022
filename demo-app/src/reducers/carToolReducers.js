@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 import {
-    APPEND_ACTION, REMOVE_ACTION, REPLACE_ACTION,
+    REFRESH_DONE_ACTION, REMOVE_ACTION, REPLACE_ACTION,
     EDIT_ACTION, CANCEL_ACTION,
 } from "../actions/carToolActions";
 
@@ -13,14 +13,8 @@ const carList = [
 const carsReducer = (cars = carList, action) => {
 
     switch (action.type) {
-        case APPEND_ACTION:
-            return [
-                ...cars,
-                {
-                    ...action.car,
-                    id: Math.max(...cars.map(c => c.id), 0) + 1,
-                }
-            ];
+        case REFRESH_DONE_ACTION:
+            return action.cars;
         case REPLACE_ACTION:
             const newCars = [...cars];
             const carIndex = newCars.findIndex(c => c.id === action.car.id);
@@ -39,7 +33,7 @@ const editCarIdReducer = (editCarId = -1, action) => {
         return action.carId;
     }
 
-    if ([ APPEND_ACTION, REMOVE_ACTION,
+    if ([ REFRESH_DONE_ACTION, REMOVE_ACTION,
           REPLACE_ACTION, CANCEL_ACTION].includes(action.type)) {
         return -1;
     }
@@ -47,7 +41,22 @@ const editCarIdReducer = (editCarId = -1, action) => {
     return editCarId;
 };
 
+const isLoadingReducer = (isLoading = false, action) => {
+
+    if (action.type.endsWith('Request')) {
+        return true;
+    }
+
+    if (action.type.endsWith('Done')) {
+        return false;
+    }
+
+    return isLoading;
+
+};
+
 export const carToolReducer = combineReducers({
     cars: carsReducer,
     editCarId: editCarIdReducer,
+    isLoading: isLoadingReducer,
 });

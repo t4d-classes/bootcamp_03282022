@@ -1,33 +1,32 @@
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useMemo } from "react";
 
 import {
-    createAppendAction, createReplaceAction, createRemoveAction,
-    createEditAction, createCancelAction,
+    appendCar, createReplaceAction, createRemoveAction,
+    createEditAction, createCancelAction, refreshCars,
 } from "../actions/carToolActions";
+import { carsSelector, editCarIdSelector } from '../selectors/carToolSelectors';
 
 export const useCarToolReduxStore = () => {
 
-    const cars = useSelector(state => {
-        return state.cars.map(car => {
-
-            const carCopy = { ...car };
-            carCopy.formattedPrice = '$' + car.price;
-            return carCopy;
-        });
-    });
-    const editCarId = useSelector(state => state.editCarId);
+    const cars = useSelector(carsSelector);
+    const editCarId = useSelector(editCarIdSelector);
 
     const dispatch = useDispatch();
 
-    const boundActions = bindActionCreators({
-        addCar: createAppendAction,
+    const boundActions = useMemo(() => bindActionCreators({
+        refreshCars,
+        addCar: appendCar,
         saveCar: createReplaceAction,
         deleteCar: createRemoveAction,
         editCar: createEditAction,
         cancelCar: createCancelAction,
-    }, dispatch);
+    }, dispatch), [dispatch]);
 
+    useEffect(() => {
+        boundActions.refreshCars();
+    }, [boundActions]);
 
     return {
         ...boundActions,
