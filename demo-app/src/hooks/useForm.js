@@ -6,9 +6,7 @@ export const useForm = (initialForm) => {
 
     const change = (e) => {
         setForm({
-            ...form, // copy the properties from car form
-            
-            // computed property
+            ...form,
             [e.target.name]: e.target.type === 'number'
                 ? e.target.valueAsNumber : e.target.value,
         });
@@ -17,7 +15,4 @@ export const useForm = (initialForm) => {
     const resetForm = () => setForm(initialForm);
 
     return [ form, change, resetForm ];
-
-
 };
-
