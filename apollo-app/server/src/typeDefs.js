@@ -8,6 +8,10 @@ export const typeDefs = gql`
     graphqlIsCool: Boolean
     author(authorId: ID): Author
     authors: [Author]
+    book(bookId: ID): Book
+    bookByIsbn(isbn: String): Book
+    books: [Book]
+    booksByAuthorId(authorId: ID): [Book]
   }
 
 
@@ -16,5 +20,15 @@ export const typeDefs = gql`
       firstName: String
       lastName: String
       phoneNumber: String
+  }
+
+  type Book {
+    id: ID
+    isbn: String
+    title: String
+    authorId: ID
+    category: String
+    price: Float
+    quantity: Int
   }
 `;
