@@ -41,6 +41,33 @@ export const resolvers = {
                 .then(res => res.json());
         },
     },
+    Mutation: {
+        async appendBook(_, args) {
+
+            const res = await fetch('http://localhost:5050/authors', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify(args.book.author),
+            });
+            const { id: authorId } = await res.json();
+
+            const newBook = {
+                ...args.book,
+                authorId,
+            };
+
+            delete newBook.author;
+
+            const bookRes = await fetch('http://localhost:5050/books', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify(newBook),
+            });
+            
+            return await bookRes.json();
+
+        }
+    },
     Author: {
         // default field resolver
         // id(author) => author.id,

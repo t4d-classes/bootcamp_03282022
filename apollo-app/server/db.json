@@ -65,6 +65,12 @@
       "lastName": "Jones",
       "phoneNumber": "123",
       "id": 11
+    },
+    {
+      "firstName": "Marissa",
+      "lastName": "Meyer",
+      "phoneNumber": "123-456-7890",
+      "id": 12
     }
   ],
   "books": [
@@ -130,6 +136,15 @@
       "price": 4.99,
       "quantity": 34,
       "id": 7
+    },
+    {
+      "isbn": "1234567890",
+      "title": "Heartless",
+      "category": "Fantasy",
+      "price": 15,
+      "quantity": 1,
+      "authorId": 12,
+      "id": 8
     }
   ]
 }
