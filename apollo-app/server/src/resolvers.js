@@ -17,6 +17,10 @@ export const resolvers = {
     author(_, args) {
         return fetch('http://localhost:5050/authors/' + args.authorId)
             .then(res => res.json());
+    },
+    authors() {
+        return fetch('http://localhost:5050/authors')
+            .then(res => res.json());
     }
   },
 };

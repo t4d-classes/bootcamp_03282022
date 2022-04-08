@@ -7,6 +7,7 @@ export const typeDefs = gql`
     pi: Float
     graphqlIsCool: Boolean
     author(authorId: ID): Author
+    authors: [Author]
   }
 
 
