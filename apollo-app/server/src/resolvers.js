@@ -42,6 +42,16 @@ export const resolvers = {
         },
     },
     Mutation: {
+        async appendAuthor(_, args) {
+
+            const res = await fetch('http://localhost:5050/authors', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify(args.author),
+            });
+            return await res.json();
+
+        },
         async appendBook(_, args) {
 
             const res = await fetch('http://localhost:5050/authors', {

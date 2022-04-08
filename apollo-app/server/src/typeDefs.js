@@ -15,7 +15,8 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-      appendBook(book: NewBook): Book
+    appendAuthor(author: NewAuthor): Author
+    appendBook(book: NewBook): Book
   }
 
 

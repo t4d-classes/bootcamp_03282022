@@ -71,6 +71,36 @@
       "lastName": "Meyer",
       "phoneNumber": "123-456-7890",
       "id": 12
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "phoneNumber": "123-123-1234",
+      "id": 13
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "phoneNumber": "123-123-1234",
+      "id": 14
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "phoneNumber": "123-123-1234",
+      "id": 15
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "phoneNumber": "123-123-1234",
+      "id": 16
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "phoneNumber": "123-123-1234",
+      "id": 17
     }
   ],
   "books": [
@@ -145,6 +175,42 @@
       "quantity": 1,
       "authorId": 12,
       "id": 8
+    },
+    {
+      "isbn": "0987654321",
+      "title": "The Wandering Mind",
+      "category": "Inspirational",
+      "price": 10.99,
+      "quantity": 8,
+      "authorId": 14,
+      "id": 9
+    },
+    {
+      "isbn": "0987654321",
+      "title": "The Wandering Mind",
+      "category": "Inspirational",
+      "price": 10.99,
+      "quantity": 8,
+      "authorId": 15,
+      "id": 10
+    },
+    {
+      "isbn": "0987654321",
+      "title": "The Wandering Mind",
+      "category": "Inspirational",
+      "price": 10.99,
+      "quantity": 8,
+      "authorId": 16,
+      "id": 11
+    },
+    {
+      "isbn": "0987654321",
+      "title": "The Wandering Mind",
+      "category": "Inspirational",
+      "price": 10.99,
+      "quantity": 8,
+      "authorId": 17,
+      "id": 12
     }
   ]
 }

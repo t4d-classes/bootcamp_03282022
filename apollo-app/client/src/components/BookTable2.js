@@ -11,6 +11,7 @@ export const BookTable2 = ({ books }) => {
           <th>Quantity</th>
         </tr>
       </thead>
+      <tbody>
       {books.map(book => <tr key={book.id}>
         <td>{book.id}</td>
         <td>{book.author.fullName}</td>
@@ -18,6 +19,7 @@ export const BookTable2 = ({ books }) => {
         <td>{book.price}</td>
         <td>{book.quantity}</td>
       </tr>)}
+      </tbody>
     </table>
   )
 };
