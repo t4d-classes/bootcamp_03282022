@@ -13,7 +13,7 @@ export const BookTable2 = ({ books }) => {
       </thead>
       {books.map(book => <tr key={book.id}>
         <td>{book.id}</td>
-        <td>{book.authorFullName}</td>
+        <td>{book.author.fullName}</td>
         <td>{book.title}</td>
         <td>{book.price}</td>
         <td>{book.quantity}</td>

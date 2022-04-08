@@ -8,9 +8,14 @@ const APP_QUERY = gql`
     luckyNum
     books {
         id title price quantity
+        author {
+            fullName
+        }
     }
   }
 `;
+
+
 
 function App() {
     const { loading, error, data } = useQuery(APP_QUERY);

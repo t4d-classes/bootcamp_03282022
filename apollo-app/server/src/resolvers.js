@@ -41,4 +41,22 @@ export const resolvers = {
                 .then(res => res.json());
         },
     },
+    Author: {
+        // default field resolver
+        // id(author) => author.id,
+        // firstName(author) => author.firstName,
+        fullName(author) {
+            return `${author.firstName} ${author.lastName}`;
+        },
+        books(author) {
+            return fetch('http://localhost:5050/books?authorId=' + author.id)
+                .then(res => res.json());
+        }
+    },
+    Book: {
+        author(book) {
+            return fetch('http://localhost:5050/authors/' + book.authorId)
+                .then(res => res.json());
+        }
+    }
 };
